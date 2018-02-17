@@ -16,7 +16,11 @@ class App extends React.Component {
       selectedVideo: null
     }
 
-    YTSearch({ key: youTubeApiKey, term: 'surfboards' }, videos => {
+    this.videoSearch('surfboards')
+  }
+
+  videoSearch (query) {
+    YTSearch({ key: youTubeApiKey, term: query }, videos => {
       this.setState({
         videos,
         selectedVideo: videos[0]
@@ -29,7 +33,7 @@ class App extends React.Component {
     
     return (
       <div>
-        <SearchBar />
+        <SearchBar onQueryChange={query => this.videoSearch(query)} />
         <VideoDetail video={selectedVideo} />
         <VideoList
           onSelectVideo={selectedVideo => this.setState({ selectedVideo })}
