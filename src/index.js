@@ -1,3 +1,4 @@
+import _ from 'lodash'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import YTSearch from 'youtube-api-search'
@@ -30,10 +31,11 @@ class App extends React.Component {
 
   render () {
     const { videos, selectedVideo } = this.state
+    const throttledVideoSearch = _.debounce(query => this.videoSearch(query), 300)
     
     return (
       <div>
-        <SearchBar onQueryChange={query => this.videoSearch(query)} />
+        <SearchBar onQueryChange={query => throttledVideoSearch(query)} />
         <VideoDetail video={selectedVideo} />
         <VideoList
           onSelectVideo={selectedVideo => this.setState({ selectedVideo })}
