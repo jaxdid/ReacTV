@@ -1,3 +1,12 @@
+.header {
+  text-align: right;
+  font-size: 56px;
+  font-family: 'Bungee Shade', cursive;
+  line-height: 52px;
+  color: #fff;
+  background-color: aquamarine;
+}
+
 .search-bar {
   margin: 20px;
   text-align: center;

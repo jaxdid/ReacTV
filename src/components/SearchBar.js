@@ -19,6 +19,7 @@ class SearchBar extends React.Component {
       <div className="search-bar">
         <input
           value={this.state.query}
+          placeholder={'Are you not entertained?'}
           onChange={event => this.handleInputChange(event.target.value)}
         />
       </div>

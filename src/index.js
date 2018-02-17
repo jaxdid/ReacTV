@@ -35,6 +35,7 @@ class App extends React.Component {
     
     return (
       <div>
+        <div className="header">ReacTV</div>
         <SearchBar onQueryChange={query => throttledVideoSearch(query)} />
         <VideoDetail video={selectedVideo} />
         <VideoList
