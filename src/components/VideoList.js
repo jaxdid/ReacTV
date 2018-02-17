@@ -1,9 +1,15 @@
 import React from 'react'
 import VideoListItem from './VideoListItem'
 
-const VideoList = ({ videos }) => {
+const VideoList = ({ videos, onSelectVideo }) => {
   const videoListItems = videos.map(video => {
-    return <VideoListItem key={video.etag} video={video} />
+    return (
+      <VideoListItem
+        key={video.etag}
+        video={video}
+        onSelectVideo={onSelectVideo}
+      />
+    )
   })
 
   return (
